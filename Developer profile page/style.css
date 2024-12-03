@@ -1,0 +1,689 @@
+/* Keyframes for background animation */
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 
+
+
+/* Keyframes for the flip animation */
+
+@keyframes flipImage {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Keyframes for border of my image */
+
+@keyframes rainbowBorder {
+  0% {
+    border-color: orange;
+  }
+  25% {
+    border-color: yellow;
+  }
+  50% {
+    border-color: green;
+  }
+  75% {
+    border-color: rgb(31, 223, 195);
+  }
+  100% {
+    border-color: violet;
+  }
+}
+
+body {
+  background: linear-gradient(45deg, #ffb6c1, #dda0dd, #fa87e3, #ffc0cb);
+  background-size: 400% 400%;
+  animation: gradientAnimation 5s ease infinite;
+
+}
+
+.dark-mode {
+  background: linear-gradient(45deg, black, #333, #515151, #a1a0a0);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: white;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.switch-container {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 0 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgb(202, 67, 159);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+#sunIcon,
+#moonIcon {
+  font-size: 1.5rem;
+}
+
+#sunIcon {
+  color: rgb(202, 67, 159);
+  margin-right: 10px;
+  display: block;
+}
+
+#moonIcon {
+  color: gray;
+  margin-left: 10px;
+  display: none;
+}
+
+.dark-mode #sunIcon {
+  display: none;
+}
+
+.dark-mode #moonIcon {
+  display: block;
+  color: white;
+}
+
+
+.sticky-header {
+  background-color: lightpink;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.dark-mode header {
+  background-color: rgb(44, 42, 42);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: rgb(202, 67, 159);
+  margin-right: 20px;
+}
+
+.dark-mode .dropbtn {
+  color: greenyellow;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -160px;
+  background-color: lightpink;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #800080;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: lighter;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(202, 67, 159);
+  color: white;
+}
+
+/* Show the dropdown content when the button is clicked */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dark-mode .dropdown-content a {
+  color: greenyellow;
+  background-color: #515151;
+}
+
+.dark-mode .dropdown-content a:hover {
+  background-color: rgb(202, 67, 159);
+  color: white;
+}
+
+.about-image {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid rgb(202, 67, 159);
+  padding: 5px;
+  object-fit: cover;
+  /* Add the rainbow border animation */
+  animation: rainbowBorder 7s linear infinite, flipImage 2s ease-out 1;
+  /* To enable 3D flipping */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.carousel-container {
+  border: 3px solid peachpuff; /* Add a border around the carousel */
+  padding: 10px; /* Add some padding inside the border */
+  border-radius: 10px; /* Optional: Make the corners rounded */
+  width: 100%; /* Set the width of the container */
+  max-width: 1500px; /* Ensure the carousel doesn't grow too wide */
+  margin: 20px auto; /* Center the container horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
+.dark-mode .carousel-container {
+  border: 3px solid greenyellow;
+}
+
+.custom-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+  width: 100%;
+  max-width: 300px; /* Adjust the image size */
+  object-fit: cover;
+  margin: 10px; /* Adds space around each image */
+  border: 3px solid rgb(202, 67, 159); /* Adds a border around each image */
+  border-radius: 10px; /* Optional: Adds rounded corners to the images */
+  padding: 5px; /* Adds space inside the border around the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .carousel-slide img {
+  border: 3px solid peachpuff;
+}
+
+.carousel-buttons {
+  text-align: center; /* Center the buttons horizontally */
+  margin-top: 10px; /* Add some space above the buttons */
+}
+
+.carousel-buttons button {
+  background-color: peachpuff;
+  color: rgb(202, 67, 159);
+  border: 2px solid black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 10px 20px; /* Adjust padding for larger buttons */
+  margin: 0 10px; /* Add margin between the buttons */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.carousel-buttons button:hover {
+  background-color: rgb(166, 52, 128);
+  color: peachpuff;
+}
+
+body,
+.custom-footer,
+.dropdown-content a,
+.carousel-buttons button {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.dark-mode .carousel-buttons button {
+  background-color: #333; /* Dark mode background color */
+  color: greenyellow; /* Dark mode text color */
+  border: 1px solid peachpuff; /* Dark mode border color */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/* Hover state for dark mode */
+.dark-mode .carousel-buttons button:hover {
+  background-color: rgb(202, 67, 159); /* Hover color */
+  color: #333; /* Change text color on hover */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 65px;
+  color: rgb(202, 67, 159);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  /* text-align: center; */
+  margin: 10px;
+}
+
+h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  color: greenyellow;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  color: peachpuff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h4 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  color: rgb(251, 202, 160);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h5 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  color: rgb(244, 188, 140);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin-bottom: 5px;
+}
+
+h6 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  color: rgb(246, 174, 111);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin-bottom: 5px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 20px;
+}
+
+
+#projects {
+  flex: 2;
+  padding: 20px;
+  border: 3px solid peachpuff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode #projects {
+  border: 3px solid greenyellow;
+}
+
+.info-box {
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px;
+  border: 3px solid peachpuff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .info-box {
+  border: 3px solid greenyellow;
+}
+
+.about {
+  flex: 1;
+  padding: 20px; /* Adds padding inside the border */
+  margin-right: 20px;
+  text-align: left;
+  max-width: 500px;
+  border: 3px solid peachpuff; /* Adds a 2px solid border with color */
+  border-radius: 10px; /* Adds rounded corners to the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adds shadow */
+}
+
+.dark-mode .about {
+  border: 3px solid greenyellow;
+}
+
+.narrow-paragraph {
+  color: rgb(202, 67, 159);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.skills {
+  flex: 1;
+  padding: 20px; /* Adds padding inside the border */
+  margin-right: 20px;
+  text-align: left;
+  font-size: 22px;
+  max-width: 500px;
+  border: 3px solid peachpuff; /* Adds a 2px solid border with color */
+  border-radius: 10px; /* Adds rounded corners to the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adds shadow */
+}
+
+/* .skills ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.skills li {
+  margin-bottom: 8px;
+  padding-left: 5px;
+} */
+
+.dark-mode .skills {
+  border: 3px solid greenyellow; /* Border color in dark mode */
+}
+
+/* .dark-mode .skills ul {
+  list-style-type: square; 
+}
+
+.dark-mode .skills li {
+  color: rgb(255, 255, 204); 
+} */
+
+p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(202, 67, 159);
+  margin: 20px;
+  padding: 10px;
+}
+
+.dark-mode p {
+  color: rgb(255, 255, 204);
+}
+
+.highlight {
+  color: purple;
+}
+
+.dark-mode .highlight {
+  color: greenyellow;
+}
+
+a {
+  color: purple; /* Normal state */
+}
+
+a:visited {
+  color: purple; /* Visited state */
+}
+
+a:hover {
+  color: rgb(202, 67, 159); /* Hover state */
+}
+
+.dark-mode a {
+  color: greenyellow;
+}
+
+.back-to-top-btn {
+  position: fixed; /* Fixed position */
+  bottom: 40px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  background-color: peachpuff; /* Background color */
+  color: rgba(202, 67, 159, 0.8); /* Icon color */
+  border: 2px solid rgba(202, 67, 159, 0.8); /* No border */
+  border-radius: 50px; /* Rounded shape */
+  width: 60px; /* Width */
+  height: 60px; /* Height */
+  display: flex; /* Center the icon */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  font-size: 24px; /* Icon size */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.back-to-top-btn:hover {
+  background-color: rgba(202, 67, 159, 0.8);
+  color: peachpuff; 
+}
+
+.dark-mode .back-to-top-btn {
+  background-color: #333;
+  color: greenyellow;
+  border: 2px solid peachpuff;
+}
+
+.dark-mode .back-to-top-btn:hover {
+  background-color: rgb(202, 67, 159);
+  color: #333;
+}
+
+.custom-footer {
+  background-color: lightpink;
+  color: rgb(202, 67, 159);
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.dark-mode .custom-footer {
+  background-color: rgb(44, 42, 42);
+  color: white;
+}
+
+.footer {
+  font-size: 10px
+}
+
+
+
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  .switch {
+    width: 50px;
+    height: 28px;
+  }
+
+  .slider:before {
+    height: 22px;
+    width: 22px;
+  }
+
+  .carousel-title {
+    font-size: 1.5rem; /* Smaller title size for tablets */
+  }
+
+  .carousel-slide img {
+    margin: 0 2px;
+  }
+
+  .carousel-buttons button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #projects,
+  .about,
+  .skills {
+    width: 90%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .carousel-container {
+    display: none;
+  }
+
+
+  .switch {
+    width: 10px; /* Even smaller switch width for mobile */
+    height: 10px; /* Even smaller switch height for mobile */
+  }
+
+  .slider:before {
+    height: 18px; /* Reduce size of the slider */
+    width: 18px;
+    left: 3px; /* Adjust position */
+    bottom: 3px;
+  }
+
+  #sunIcon,
+  #moonIcon {
+    font-size: 1rem; /* Smaller icon size for mobile */
+  }
+
+  #sunIcon {
+    margin-right: 0;
+  }
+
+  #moonIcon {
+    margin-left: 0;
+  }
+
+  .switch-container {
+    left: 5px; /* Adjust positioning on smaller screens */
+  }
+
+  .dropbtn {
+    font-size: 15px;
+    margin-right: 15px;
+  }
+
+  .about-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 26px;
+    text-align: match-parent;
+  }
+  h2 {
+    font-size: 20px;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+
+  .back-to-top-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+  }
+
+}
